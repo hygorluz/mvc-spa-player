@@ -44,11 +44,11 @@ class HealthcheckResult(CustomBaseModel):
 class MusicResult(CustomBaseModel):
     """Music result schema."""
 
-    path: str = Field(default=False, description="Image path")
+    path: str = Field(default=False, description="Music path")
     image: str = Field(description="Music image")
 
 
 class Payload(CustomBaseModel):
     """payload schema."""
 
-    name: str = Field(default=False, description="Image path")
+    name: str = Field(default=False, description="Music name")
