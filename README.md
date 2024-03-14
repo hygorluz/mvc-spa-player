@@ -16,3 +16,20 @@ Project created as part of the discipline Backend Architecture.
 - OpenAPI Specs: http://127.0.0.1:8080/openapi.json
 - Postman collection: Please import the postman request collection from the postman [folder](/postman) in the root of
   the repository.
+
+## How to run?
+
+Docker version (This version is not working right now):
+- cd mvc-spa-player (access the project root folder)
+- docker-compose build
+- docker-compose up
+
+Starting backend:
+- cd mvc-spa-player (access the project root folder)
+- pip install -r requirements.txt (Install dependencies)
+
+Starting frontend:
+- cd mvc-spa-player (access the project root folder)
+- cd views (access the frontend folder)
+- npm i
+- ./start.sh (Start gunicorn process)
