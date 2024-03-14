@@ -14,3 +14,5 @@ exec gunicorn "service.application:create_application()" --workers 1 --worker-cl
 echo $! > gunicorn.pid
 
 
+
+
