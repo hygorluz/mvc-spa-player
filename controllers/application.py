@@ -4,10 +4,10 @@ import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from service.configs import configs
-from service.endpoints import music, health
-from service.schemas import (HealthcheckResult, PrettyJSONResponse, MusicResult)
-from service.utils import setup_logging
+from controllers.configs import configs
+from controllers.endpoints import music, health
+from models.schemas import (HealthcheckResult, PrettyJSONResponse, MusicResult)
+from controllers.utils import setup_logging
 
 
 def create_application() -> FastAPI:

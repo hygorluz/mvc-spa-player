@@ -31,3 +31,6 @@ tmp.sh
 
 /*.png
 /*.csv
+
+#Node
+.node_modules/
