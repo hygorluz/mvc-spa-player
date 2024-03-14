@@ -32,5 +32,9 @@ tmp.sh
 /*.png
 /*.csv
 
-#Node
+# Node
 .node_modules/
+views/package-lock.json
+
+# Gunicorn
+gunicorn.pid
