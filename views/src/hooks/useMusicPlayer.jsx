@@ -3,11 +3,13 @@ import {useAudio} from 'react-use';
 import MusicApi from "../services/musicApi";
 
 export const useMusicPlayer = () => {
+  const [loading, setLoading] = useState(true)
   const [musics, setMusics] = useState([])
   const currentMusicIndex = useRef(0)
+  const currentMusic = musics[currentMusicIndex.current]
 
   const audioControls = useAudio({
-    src: musics[currentMusicIndex.current]?.src,
+    src: currentMusic?.src,
     autoPlay: true,
   })
 
@@ -15,11 +17,18 @@ export const useMusicPlayer = () => {
 
   
   useEffect(() => {
-    MusicApi.getMusics().then(data => setMusics(data))
+    setLoading(true)
+    MusicApi.getMusics().then(data => {
+      setMusics(data)
+      setLoading(false)
+    })
   }, [])
 
   
 
-  return audioControls
+  return {
+    audioControls,
+    loading
+  }
 
 }

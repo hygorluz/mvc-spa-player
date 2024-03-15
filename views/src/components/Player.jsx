@@ -8,6 +8,7 @@ import {
   IconButton,
   Text,
   Flex,
+  Spinner,
 } from '@chakra-ui/react';
 
 import { 
@@ -21,7 +22,7 @@ import {
 import { useMusicPlayer } from '../hooks/useMusicPlayer';
 
 const AudioPlayer = () => {
-  const audioControls = useMusicPlayer()
+  const { audioControls, loading} = useMusicPlayer()
   const [audio, state, controls] = audioControls
 
   const handlePlayPause = () => {
@@ -58,9 +59,13 @@ const AudioPlayer = () => {
   return (
     <Box p={4}>
       {audio}
+
+      <Flex alignItems="center" justifyContent="center" gap="2" minHeight={'60vh'}>
+        <Spinner size="xl" hidden={!loading} />
+      </Flex>
+
       <Flex alignItems="center" justifyContent="space-between" gap="2">
         <div></div>
-
         <Flex alignItems="center"  gap="2">
           <IconButton
             icon={<FaBackward />}
