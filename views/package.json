@@ -17,6 +17,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "fake:server": "json-server --watch db.json --port 4000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -38,5 +39,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^1.0.0-alpha.23"
   }
 }
