@@ -19,7 +19,6 @@ const PlayerControls = ({ actions, state, isProcessing }) => {
     return <Progress isIndeterminate />
   }
 
-  console.log(state)
   return (
     <>
     <Flex alignItems="center" justifyContent="space-between" gap="2">
