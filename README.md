@@ -1,4 +1,4 @@
-# :robot: MVC SPA Player
+# :musical_note: MVC SPA Player
 
 Project created as part of the discipline Backend Architecture.
 
