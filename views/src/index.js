@@ -4,13 +4,13 @@ import { createRoot } from 'react-dom/client';
 import { ChakraProvider } from "@chakra-ui/react";
 
 import Header from "./components/Header";
-import AudioPlayer from "./components/Player";
+import Player from "./pages/Player";
 
 function App() {
   return (
     <ChakraProvider>
       <Header />
-      <AudioPlayer />
+      <Player />
     </ChakraProvider>
   )
 }

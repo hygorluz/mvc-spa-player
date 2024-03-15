@@ -1,15 +1,12 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {useAudio} from 'react-use'; 
-import MusicApi from "../services/musicApi";
 import { usePreFetchImages } from "./usePreFetchImages";
 import { useProcessingMedia } from "./useProcessingMedia";
 import { useAutoStepper } from "./useAutoStepper";
 
-export const useMusicPlayer = () => {
-  const [loading, setLoading] = useState(true)
-  const [musics, setMusics] = useState([])
+export const useMusicPlayer = (playList) => {
   const [currentMusicIndex, setCurrentMusicIndex] = useState(0)
-  const currentMusic = musics[currentMusicIndex]
+  const currentMusic = playList[currentMusicIndex]
 
   const audioControls = useAudio({
     src: currentMusic?.src,
@@ -21,16 +18,7 @@ export const useMusicPlayer = () => {
   
 
   useAutoStepper(ref, goToNextMusic)
-
-  useEffect(() => {
-    setLoading(true)
-    MusicApi.getMusics().then(data => {
-      prefetchImages(data)
-      setMusics(data)
-      setLoading(false)
-    })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  prefetchImages(playList)
 
   
   function handlePlayPause () {
@@ -64,9 +52,9 @@ export const useMusicPlayer = () => {
   }
 
   function goToNextMusic() {
-    if (currentMusicIndex === musics.length - 1) return
+    if (currentMusicIndex === playList.length - 1) return
     
-    setCurrentMusicIndex(currentMusicIndex + 1 % musics.length)
+    setCurrentMusicIndex(currentMusicIndex + 1 % playList.length)
     controls.seek(0)
     controls.play()
   }
@@ -74,7 +62,7 @@ export const useMusicPlayer = () => {
   function goToPreviousMusic() {
     if (currentMusicIndex === 0) return
 
-    setCurrentMusicIndex(currentMusicIndex - 1 + musics.length % musics.length)
+    setCurrentMusicIndex(currentMusicIndex - 1 + playList.length % playList.length)
     controls.seek(0)
     controls.play()
   }
@@ -85,7 +73,6 @@ export const useMusicPlayer = () => {
 
   return {
     audioControls,
-    loading,
     music: currentMusic,
     isProcessing,
     actions: {

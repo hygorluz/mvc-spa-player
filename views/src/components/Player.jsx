@@ -3,30 +3,15 @@ import {
   Box,
   Text,
   Flex,
-  Spinner,
   Image,
 } from '@chakra-ui/react';
 
 import { useMusicPlayer } from '../hooks/useMusicPlayer';
 import PlayerControls from './PlayerControls';
 
-const AudioPlayer = () => {
-  const { audioControls, actions, music, loading, isProcessing} = useMusicPlayer()
+const AudioPlayer = ({ musics }) => {
+  const { audioControls, actions, music, isProcessing} = useMusicPlayer(musics)
   const [audio, state] = audioControls
-
-  if (loading) {
-    return (
-      <Flex alignItems="center" justifyContent="center">
-        <Spinner
-          thickness='4px'
-          speed='0.65s'
-          emptyColor='gray.200'
-          color='blue.500'
-          size='xl'
-        />      
-      </Flex>
-    )
-  }
 
   return (
     <Box p={4}>
