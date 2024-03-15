@@ -21,6 +21,9 @@ Project created as part of the discipline Backend Architecture.
 
 Docker version:
 - cd mvc-spa-player (access the project root folder)
+- cd views (access the frontend folder)
+- npm i
+- cd .. (to get back to the root)
 - docker-compose build
 - docker-compose up
 
@@ -33,4 +36,4 @@ Starting frontend:
 - cd mvc-spa-player (access the project root folder)
 - cd views (access the frontend folder)
 - npm i
-- ./start.sh (Start gunicorn process)
+- npm start

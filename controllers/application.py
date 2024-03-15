@@ -5,7 +5,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from controllers.configs import configs
-from controllers.endpoints import music, health
+from controllers.endpoints import musics, health
 from models.schemas import (HealthcheckResult, PrettyJSONResponse, MusicResult)
 from controllers.utils import setup_logging
 
@@ -42,15 +42,15 @@ def create_application() -> FastAPI:
                       description="Healthcheck endpoint.")
 
     app.add_api_route(
-        path="/music",
-        name="music",
-        endpoint=music,
+        path="/musics",
+        name="musics",
+        endpoint=musics,
         response_model=MusicResult,
         response_class=PrettyJSONResponse,
         response_model_exclude_none=True,
         methods=["POST"],
         status_code=200,
-        tags=["music"],
+        tags=["musics"],
         description="Single NFT Ranking endpoint. Responsible to return the NFT Ranking, Checklist, and factors")
 
     # Returns the created API instance

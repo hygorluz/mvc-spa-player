@@ -18,7 +18,7 @@ def health(response: Response):
     return return_obj
 
 
-def music(requested_payload: Payload) -> MusicResult:
+def musics(requested_payload: Payload) -> MusicResult:
     """Instant Ranking controllers for an NFT."""
     request_start_time: float = time.time()
     music_name: str = requested_payload.name
