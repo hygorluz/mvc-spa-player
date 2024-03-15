@@ -70,6 +70,17 @@ export const useMusicPlayer = (playList) => {
     controls.play()
   }
 
+  function handleVolumeChange (value) {
+    controls.volume(value / 100)
+    
+    if (value > 0 && state.muted) {
+      controls.unmute()
+    } else if (value === 0 && !state.muted) {
+      controls.mute()
+    }
+  }
+
+
 
   
 
@@ -84,6 +95,7 @@ export const useMusicPlayer = (playList) => {
       handleForward,
       handleSeekChange,
       handleMute,
+      handleVolumeChange,
       goToNextMusic,
       goToPreviousMusic
     }

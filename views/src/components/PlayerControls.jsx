@@ -19,6 +19,7 @@ const PlayerControls = ({ actions, state, isProcessing }) => {
     return <Progress isIndeterminate />
   }
 
+  console.log(state)
   return (
     <>
     <Flex alignItems="center" justifyContent="space-between" gap="2">
@@ -74,6 +75,21 @@ const PlayerControls = ({ actions, state, isProcessing }) => {
         <Text>{new Date(state.time * 1000).toISOString().substr(14, 5)}</Text>
         <Text>{new Date((state.duration - state.time) * 1000).toISOString().substr(14, 5)}</Text>
       </Flex>
+      <Flex justifyContent={'center'} flexDirection={'column'} alignItems={'center'}>
+        <Slider 
+          colorScheme='pink'
+          value={state.volume * 100} 
+          onChange={actions.handleVolumeChange} 
+          width={300}
+        >
+          <SliderTrack>
+            <SliderFilledTrack />
+          </SliderTrack>
+          <SliderThumb />
+        </Slider>
+        <Text>Volume</Text>
+       </Flex>
+
     </>
   )
 }
