@@ -19,7 +19,7 @@ const Player = () => {
 
   if (loading || !musics) {
     return (
-      <Flex alignItems="center" justifyContent="center">
+      <Flex alignItems="center" justifyContent="center" mt={100}>
         <Spinner
           thickness='4px'
           speed='0.65s'
