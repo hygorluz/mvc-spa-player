@@ -26,6 +26,9 @@ class Config:
     # The flask controllers port
     service_port: str = os.environ.get('SERVICE_PORT', '8080')
 
+    # Music settings
+    music_file_path: str = os.environ.get("MUSIC_FILE_PATH", "./../fixture/musics.json")
+
 
 # Loaded configs
 configs = Config()

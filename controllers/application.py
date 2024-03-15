@@ -1,4 +1,5 @@
 """API application related functions."""
+from typing import Optional
 
 import uvicorn
 from fastapi import FastAPI
@@ -6,8 +7,8 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from controllers.configs import configs
 from controllers.endpoints import musics, health
-from models.schemas import (HealthcheckResult, PrettyJSONResponse, MusicResult)
-from controllers.utils import setup_logging
+from models.schemas import (HealthcheckResult, PrettyJSONResponse, Music)
+from controllers.utils import setup_logging, get_music_data
 
 
 def create_application() -> FastAPI:
@@ -45,13 +46,16 @@ def create_application() -> FastAPI:
         path="/musics",
         name="musics",
         endpoint=musics,
-        response_model=MusicResult,
+        response_model=Optional[Music],
         response_class=PrettyJSONResponse,
         response_model_exclude_none=True,
         methods=["POST"],
         status_code=200,
         tags=["musics"],
         description="Single NFT Ranking endpoint. Responsible to return the NFT Ranking, Checklist, and factors")
+
+    # Load the musics
+    get_music_data()
 
     # Returns the created API instance
     return app

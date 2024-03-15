@@ -1,9 +1,12 @@
 """Service endpoints."""
 import time
+from typing import Optional
 
-from fastapi import Response
+from fastapi import Response, HTTPException
+from unidecode import unidecode
 
-from models.schemas import MusicResult, Payload, HealthcheckResult
+from controllers import utils
+from models.schemas import Music, Payload, HealthcheckResult
 
 
 def health(response: Response):
@@ -18,10 +21,16 @@ def health(response: Response):
     return return_obj
 
 
-def musics(requested_payload: Payload) -> MusicResult:
+def musics(requested_payload: Payload) -> Optional[Music]:
     """Instant Ranking controllers for an NFT."""
-    request_start_time: float = time.time()
     music_name: str = requested_payload.name
-    # TODO: Pesquisar dentro do diretorio de musicas a musica correspondente e retornar o path
+    music: Music = None
+    for music_data in utils.get_music_data():
+        file_music_name: str = unidecode(music_data.title.lower().strip().replace(" ", "_"))
+        requested_music_name: str = unidecode(music_name.lower().strip().replace(" ", "_"))
+        if file_music_name == requested_music_name:
+            music = music_data
+    if not music:
+        raise HTTPException(status_code=404, detail="Musica não foi encontrada.")
 
-    return None
+    return music

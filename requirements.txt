@@ -11,6 +11,7 @@ fastapi~=0.104.1
 starlette~=0.27.0
 httpx~=0.25.1
 gunicorn~=21.2.0
+unidecode~=1.3.8
 
 # Tests requirements
 yapf~=0.40.2

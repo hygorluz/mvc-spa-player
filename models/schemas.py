@@ -41,11 +41,14 @@ class HealthcheckResult(CustomBaseModel):
     api_server_online: bool = Field(default=False, description="True if the api server is online.")
 
 
-class MusicResult(CustomBaseModel):
+class Music(CustomBaseModel):
     """Music result schema."""
 
-    path: str = Field(default=False, description="Music path")
+    id: int = Field(description="The music ID")
+    title: str = Field(default=False, description="Music title")
     image: str = Field(description="Music image")
+    artist: str = Field(description="Music artist")
+    src: str = Field(description="Music src")
 
 
 class Payload(CustomBaseModel):
