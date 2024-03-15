@@ -1,0 +1,34 @@
+{
+  "musics": [
+    {
+      "id": 1,
+      "title": "Maria Fumaça",
+      "artist": "Black Rio",
+      "image": "https://i.scdn.co/image/ab67616d00001e02e9c9fc7a8155861f8db6b28f",
+      "src": "https://freesound.org/data/previews/617/617443_1648170-lq.mp3"
+    },
+    {
+      "id": 2,
+      "title": "Haluk ve ErenYalcn",
+      "artist": "ErenYalcn ile Haluk için derleme",
+      "image":"https://blend-playlist-covers.spotifycdn.com/v2/blend_DEFAULT-maroon-red-tr-tr.jpg",
+      "src": "https://freesound.org/data/previews/617/617382_7037-lq.mp3"
+    },
+    {
+      "id": 3,
+      "title": "Arkada Çalsın",
+      "artist": "Fon müziğin bir play tuşu uzağında.",
+      "image": "https://i.scdn.co/image/ab67706f00000002dfe8de5f4bfe2c9a35422193",
+      "src":"https://freesound.org/data/previews/617/617306_5674468-lq.mp3"
+
+    },
+    {
+      "id": 4,
+      "title": "Arabada +200km/h",
+      "artist": "Vites üçten beşe",
+      "src":"https://freesound.org/data/previews/617/617303_1015240-lq.mp3",
+      "image": "https://i.scdn.co/image/ab67616d00001e029aa96c06d5c346ccf6ffaf8d"
+
+    }
+  ]
+}

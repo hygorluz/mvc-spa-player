@@ -40,4 +40,3 @@ views/package-lock.json
 gunicorn.pid
 venv
 .venv
-db.json
