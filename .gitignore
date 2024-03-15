@@ -38,3 +38,5 @@ views/package-lock.json
 
 # Gunicorn
 gunicorn.pid
+venv
+.venv
