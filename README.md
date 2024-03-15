@@ -19,7 +19,7 @@ Project created as part of the discipline Backend Architecture.
 
 ## How to run?
 
-Docker version (This version is not working right now):
+Docker version:
 - cd mvc-spa-player (access the project root folder)
 - docker-compose build
 - docker-compose up
