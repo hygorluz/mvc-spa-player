@@ -10,8 +10,7 @@ echo "PYTHON BIN: $(which python)"
 
 # Start the Flask controllers
 echo "Starting the API server..."
-exec gunicorn "controllers.application:create_application()" --workers 1 --worker-class uvicorn.workers.UvicornWorker --threads 8 --max-requests 100 --bind 0.0.0.0:8080 &
-echo $! > gunicorn.pid
+exec uvicorn --host 0.0.0.0 --port 8080 --no-access-log --factory "controllers.application:create_application"
 
 
 
