@@ -37,3 +37,14 @@ Starting frontend:
 - cd views (access the frontend folder)
 - npm i
 - npm start
+
+## Important
+To run/build individually the services:
+- docker-compose up backend
+- docker-compose up frontend
+- docker-compose build backend
+- docker-compose build frontend
+
+To build the services without cache:
+- docker-compose build backend --no-cache (to build a specific service without cache)
+- docker-compose build --no-cache (to build all service without cache)
