@@ -13,7 +13,7 @@ export const useMusicPlayer = () => {
     autoPlay: true,
   })
 
-  const [audio, state, controls] = audioControls
+  const [, state, controls] = audioControls
 
   
   useEffect(() => {
@@ -25,10 +25,46 @@ export const useMusicPlayer = () => {
   }, [])
 
   
+  const handlePlayPause = () => {
+    if (state.playing) {
+      controls.pause()
+      return
+    }
+    
+    controls.play()
+  }
+
+  const handleBackward = () => {
+    controls.seek(state.time - 10)
+  }
+
+  const handleForward = () => {
+    controls.seek(state.time + 10)
+  }
+
+  const handleSeekChange = (value) => {
+    controls.seek(value)
+  }
+
+  const handleMute = () => {
+    if (state.muted) {
+      controls.unmute()
+      return
+    }
+
+    controls.mute()
+  }
 
   return {
     audioControls,
-    loading
+    loading,
+    actions: {
+      handlePlayPause,
+      handleBackward,
+      handleForward,
+      handleSeekChange,
+      handleMute
+    }
   }
 
 }

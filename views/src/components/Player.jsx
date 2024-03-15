@@ -22,39 +22,8 @@ import {
 import { useMusicPlayer } from '../hooks/useMusicPlayer';
 
 const AudioPlayer = () => {
-  const { audioControls, loading} = useMusicPlayer()
-  const [audio, state, controls] = audioControls
-
-  const handlePlayPause = () => {
-    if (state.playing) {
-      controls.pause()
-      return
-    }
-    
-    controls.play()
-  }
-
-
-  const handleBackward = () => {
-    controls.seek(state.time - 10)
-  }
-
-  const handleForward = () => {
-    controls.seek(state.time + 10)
-  }
-
-  const handleSeekChange = (value) => {
-    controls.seek(value)
-  }
-
-  const handleMute = () => {
-    if (state.muted) {
-      controls.unmute()
-      return
-    }
-
-    controls.mute()
-  }
+  const { audioControls, actions, loading} = useMusicPlayer()
+  const [audio, state] = audioControls
 
   return (
     <Box p={4}>
@@ -70,24 +39,24 @@ const AudioPlayer = () => {
           <IconButton
             icon={<FaBackward />}
             aria-label="Backward"
-            onClick={handleBackward}
+            onClick={actions.handleBackward}
           />
           <IconButton
-            onClick={handlePlayPause}
+            onClick={actions.handlePlayPause}
             icon={state.playing ? <FaPause /> : <FaPlay />}
             aria-label={state.playing ? 'Pause' : 'Play'}
           />
           <IconButton
             icon={<FaForward />}
             aria-label="Forward"
-            onClick={handleForward}
+            onClick={actions.handleForward}
           />
         </Flex>
 
         <IconButton 
           icon={state.muted ? <FaVolumeMute /> : <FaVolumeUp />}
           aria-label="Mute"
-          onClick={handleMute}
+          onClick={actions.handleMute}
         />
       </Flex>
       <Box>
@@ -97,7 +66,7 @@ const AudioPlayer = () => {
           min={0}
           max={state.duration}
           value={state.time}
-          onChange={handleSeekChange}
+          onChange={actions.handleSeekChange}
         >
           <SliderTrack>
             <SliderFilledTrack />
