@@ -60,7 +60,10 @@ export const useMusicPlayer = (playList) => {
   }
   
   function goToPreviousMusic() {
-    if (currentMusicIndex === 0) return
+    if (currentMusicIndex === 0) {
+      controls.seek(0)
+      return
+    }
 
     setCurrentMusicIndex(currentMusicIndex - 1 + playList.length % playList.length)
     controls.seek(0)
