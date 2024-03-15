@@ -1,5 +1,5 @@
 """API application related functions."""
-from typing import Optional
+from typing import Optional, List
 
 import uvicorn
 from fastapi import FastAPI
@@ -44,7 +44,7 @@ def create_application() -> FastAPI:
 
     app.add_api_route(
         path="/musics",
-        name="musics",
+        name="music",
         endpoint=musics,
         response_model=Optional[Music],
         response_class=PrettyJSONResponse,
@@ -52,7 +52,19 @@ def create_application() -> FastAPI:
         methods=["POST"],
         status_code=200,
         tags=["musics"],
-        description="Single NFT Ranking endpoint. Responsible to return the NFT Ranking, Checklist, and factors")
+        description="Single Music endpoint.")
+
+    app.add_api_route(
+        path="/musics",
+        name="musics",
+        endpoint=musics,
+        response_model=List[Music],
+        response_class=PrettyJSONResponse,
+        response_model_exclude_none=True,
+        methods=["GET"],
+        status_code=200,
+        tags=["musics"],
+        description="List musics endpoint.")
 
     # Load the musics
     get_music_data()

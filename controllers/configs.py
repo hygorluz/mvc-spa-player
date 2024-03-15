@@ -7,6 +7,8 @@ from dataclasses import dataclass
 @dataclass(frozen=True)
 class Config:
     """Service Configurations."""
+    # ROOT DIR
+    ROOT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
     # The url-friendly name of the controllers
     service_name: str = os.environ.get('SERVICE_NAME', 'mvc-spa-player')
@@ -27,7 +29,7 @@ class Config:
     service_port: str = os.environ.get('SERVICE_PORT', '8080')
 
     # Music settings
-    music_file_path: str = os.environ.get("MUSIC_FILE_PATH", "./../fixture/musics.json")
+    music_file_path: str = os.environ.get("MUSIC_FILE_PATH", f"{ROOT_DIR}/fixture/musics.json")
 
 
 # Loaded configs

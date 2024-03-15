@@ -23,4 +23,4 @@ EXPOSE 8080
 
 VOLUME [ "/home/service/app" ]
 
-CMD ["gunicorn"  , "--bind", "0.0.0.0:8080","-k","uvicorn.workers.UvicornWorker","--timeout","180" , "controllers.application:create_application()"]
+CMD ["uvicorn"  , "--host", "0.0.0.0", "--port","8080", "--no-access-log" ,"--factory", "controllers.application:create_application"]
