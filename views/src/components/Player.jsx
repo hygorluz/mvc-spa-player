@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import {
   Box,
   Slider,
@@ -8,38 +8,81 @@ import {
   IconButton,
   Text,
   Flex,
-  useBoolean,
 } from '@chakra-ui/react';
-import { FaPlay, FaPause, FaForward, FaBackward } from 'react-icons/fa';
 
-const AudioPlayer = ({ audioControls }) => {
-  const [isPlaying, setIsPlaying] = useBoolean();
-  const [currentTime, setCurrentTime] = useState(0);
-  const audioRef = useRef(null);
+import { 
+  FaPlay,
+  FaPause,
+  FaForward,
+  FaBackward,
+  FaVolumeMute,
+  FaVolumeUp 
+} from 'react-icons/fa';
+import { useMusicPlayer } from '../hooks/useMusicPlayer';
+
+const AudioPlayer = () => {
+  const audioControls = useMusicPlayer()
   const [audio, state, controls] = audioControls
 
-  const handlePlay = () => {
-    setIsPlaying(true)
+  const handlePlayPause = () => {
+    if (state.playing) {
+      controls.pause()
+      return
+    }
+    
     controls.play()
+  }
+
+
+  const handleBackward = () => {
+    controls.seek(state.time - 10)
+  }
+
+  const handleForward = () => {
+    controls.seek(state.time + 10)
+  }
+
+  const handleSeekChange = (value) => {
+    controls.seek(value)
+  }
+
+  const handleMute = () => {
+    if (state.muted) {
+      controls.unmute()
+      return
+    }
+
+    controls.mute()
   }
 
   return (
     <Box p={4}>
       {audio}
-      <Flex alignItems="center" justifyContent="center" gap="2">
-        <IconButton
-          icon={<FaBackward />}
-          aria-label="Backward"
-        />
-        <IconButton
-          onClick={handlePlay}
-          icon={isPlaying ? <FaPause /> : <FaPlay />}
-          aria-label={isPlaying ? 'Pause' : 'Play'}
-        />
-        <IconButton
-          icon={<FaForward />}
-          // onClick={() => handleSeekChange(currentTime + 10)}
-          aria-label="Forward"
+      <Flex alignItems="center" justifyContent="space-between" gap="2">
+        <div></div>
+
+        <Flex alignItems="center"  gap="2">
+          <IconButton
+            icon={<FaBackward />}
+            aria-label="Backward"
+            onClick={handleBackward}
+          />
+          <IconButton
+            onClick={handlePlayPause}
+            icon={state.playing ? <FaPause /> : <FaPlay />}
+            aria-label={state.playing ? 'Pause' : 'Play'}
+          />
+          <IconButton
+            icon={<FaForward />}
+            aria-label="Forward"
+            onClick={handleForward}
+          />
+        </Flex>
+
+        <IconButton 
+          icon={state.muted ? <FaVolumeMute /> : <FaVolumeUp />}
+          aria-label="Mute"
+          onClick={handleMute}
         />
       </Flex>
       <Box>
@@ -49,7 +92,7 @@ const AudioPlayer = ({ audioControls }) => {
           min={0}
           max={state.duration}
           value={state.time}
-          // onChange={handleSeekChange}
+          onChange={handleSeekChange}
         >
           <SliderTrack>
             <SliderFilledTrack />

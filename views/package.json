@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "fake:server": "json-server --watch db.json --port 4000",
+    "fake:server": "json-server --watch db.json --port 8080",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
