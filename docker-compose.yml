@@ -1,0 +1,33 @@
+# Brief summary of exposed ports and services:
+# sentiments  -  8081/tcp
+
+version: '3.11'
+
+services:
+
+  # Backend Module
+  backend:
+    container_name: player-backend
+    hostname: player-backend
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - "8080:8080"   # Port not used
+    volumes:
+      - ./:/usr/src/app/:rw
+
+  frontend:
+    container_name: player-frontend
+    hostname: player-frontend
+    build:
+      context: ./views
+      dockerfile: Dockerfile
+    volumes:
+      - ./views:/app:rw
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+
+
