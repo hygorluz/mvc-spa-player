@@ -24,6 +24,7 @@ Docker version:
 - docker-compose build
 - docker-compose up
 
+#### Without docker version:
 Starting backend:
 - cd mvc-spa-player (access the project root folder)
 - pip install -r requirements.txt (Install dependencies)
