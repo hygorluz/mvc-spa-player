@@ -29,6 +29,54 @@
       "src":"https://freesound.org/data/previews/617/617303_1015240-lq.mp3",
       "image": "https://i.scdn.co/image/ab67616d00001e029aa96c06d5c346ccf6ffaf8d"
 
+    },
+    {
+      "id": 5,
+      "title": "Ragtime - Looney Coons (1900)",
+      "artist": "John T. Hall",
+      "src":"https://cdn.freesound.org/previews/727/727918_8432823-lq.mp3",
+      "image": "https://cdn.freesound.org/displays/727/727918_8432823_wave_bw_L.png"
+
+    },
+    {
+      "id": 6,
+      "title": "Beethoven - Sonata No.1 in F Minor, Op.2, No.1",
+      "artist": "Beethoven",
+      "src":"https://cdn.freesound.org/previews/727/727336_8432823-lq.mp3",
+      "image": "https://cdn.freesound.org/displays/727/727336_8432823_wave_bw_L.png"
+
+    },
+    {
+      "id": 7,
+      "title": "celestial bourne - drums and 808 only",
+      "artist": "Celestial Bourne",
+      "src":"https://cdn.freesound.org/previews/727/727479_10877039-lq.mp3",
+      "image": "https://cdn.freesound.org/displays/727/727479_10877039_wave_bw_L.png"
+
+    },
+    {
+      "id": 8,
+      "title": "Sci fi Movement",
+      "artist": "Mystic 04",
+      "src":"https://cdn.freesound.org/previews/725/725963_15720151-lq.mp3",
+      "image": "https://cdn.freesound.org/displays/725/725963_15720151_wave_bw_L.png"
+
+    },
+    {
+      "id": 9,
+      "title": "Funny Dancing Kids (short ver.)",
+      "artist": "Audio Coffee",
+      "src":"https://cdn.freesound.org/previews/727/727741_15232790-lq.mp3",
+      "image": "https://cdn.freesound.org/displays/727/727741_15232790_wave_bw_L.png"
+
+    },
+    {
+      "id": 10,
+      "title": "Melody loop",
+      "artist": "Dave JF",
+      "src":"https://cdn.freesound.org/previews/727/727277_11861866-lq.mp3",
+      "image": "https://cdn.freesound.org/displays/727/727277_11861866_wave_bw_L.png"
+
     }
   ]
 }
